@@ -1,4 +1,4 @@
-from .views import index, posts
+from .views import index
 
 """
 URL configuration for blog project.
