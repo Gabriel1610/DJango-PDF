@@ -1,4 +1,4 @@
-from .views import index
+from .views import index, posts
 
 """
 URL configuration for blog project.
@@ -22,4 +22,5 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),
+    path('posts/', posts, name = 'posts'),
 ]
