@@ -2,6 +2,13 @@
 
 
 {% block contenido %}
-    <h1>Esto es un post</h1>
-    <p>¿Cómo andan todos?</p>
+    {% for i in posts %}
+        <br>
+        <li>{{ i.titulo }}</li>
+        <li>{{ i.subtitulo }}</li>
+        <li>{{ i.categoria }}</li>
+
+        {% empty %}
+        <h1>No hay registros</h1>
+    {% endfor %}
 {% endblock %}

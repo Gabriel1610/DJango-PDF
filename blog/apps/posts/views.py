@@ -5,4 +5,4 @@ from .models import Post
 
 def posts(request):
     posts = Post.objects.all()
-    return render(request, 'post.html', {'posts':posts})
+    return render(request, 'posts.html', {'posts':posts})
