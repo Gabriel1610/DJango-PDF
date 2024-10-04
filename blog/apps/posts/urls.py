@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     # path('posts/', posts, name = 'posts'), forma de llamar a una vista basada en funciones
     path('posts/', PostListView.as_view(), name = 'posts'), # forma de llamar a una vista basada en funciones
+    path("posts/<int:id>/", PostListView.as_view(), name = 'posts_individual')
 ]
