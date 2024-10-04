@@ -4,10 +4,10 @@ from django.views.generic import ListView
 
 # Create your views here.
 
-# vista basada en funciones
+""" vista basada en funciones
 def posts(request):
     posts = Post.objects.all()
-    return render(request, 'posts.html', {'posts':posts})
+    return render(request, 'posts.html', {'posts':posts})"""
 
 # vista basada en clases
 class PostListView(ListView):
