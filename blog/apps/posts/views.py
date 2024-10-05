@@ -13,7 +13,7 @@ def posts(request):
 
 class PostListView(ListView):
     model = Post
-    template_name = "posts/post.html"
+    template_name = "posts/posts.html"
     context_object_name = "posts"
 
 class PostDetailView(DetailView):
