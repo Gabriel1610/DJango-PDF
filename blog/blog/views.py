@@ -1,4 +1,8 @@
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'index.html')
+    current_url = request.path
+    context = {
+        'current_url': current_url,
+    }
+    return render(request, 'index.html', context)
