@@ -2,17 +2,19 @@
 
 
 {% block contenido %}
+<div class="container-fluid" style="margin: 200px;">
     {% for i in posts %}
         <br>
         <li>{{ i.titulo }}</li>
         <li>{{ i.subtitulo }}</li>
         <li>{{ i.categoria }}</li>
+        <br>
+        <a id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">
+            Ingresá a este post
+        </a>
 
         {% empty %}
         <h1>No hay registros</h1>
     {% endfor %}
-
-    <br>
-    <h1>Ahora estamos en otro html</h1>
-    <h1>Donde estamos poniendo otro contenido</h1>
+</div>
 {% endblock %}
