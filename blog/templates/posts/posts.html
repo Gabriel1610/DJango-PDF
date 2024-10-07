@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block contenido %}
 <div class="container-fluid" style="margin: 200px;">
@@ -9,7 +9,7 @@
         <li>{{ i.subtitulo }}</li>
         <li>{{ i.categoria }}</li>
         <br>
-        <a id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">
+        <a id="boton_post" class="btn btn-primary" href="{% url 'apps.posts:post_individual' i.id %}">
             Ingresá a este post
         </a>
 
