@@ -2,5 +2,147 @@
 
 
 {% block contenido %}
-    <h1>Esta es mi página de inicio</h1>
+
+<main class="principal">
+    <section class="presentacion" id="presentacion">
+     
+      <div class="presentacion__contenedor_info">
+        
+        <h1 class="presentacion__titulo">Finanzas y Economia</h1>
+        <p class="presentacion__parrafo">
+          Herramientas y consejos para tus decisiones financieras.  Desde cómo ahorrar hasta cómo invertir, te proporcionamos las claves para alcanzar tus metas económicas. ¡Tus finanzas, simplificadas!        
+        </p>
+
+        
+                  
+        </div>         
+        </section>
+        <section class="seccion_descripcion">
+          <div
+            class="seccion_descripcion__info scroll scroll_fino scroll_gris"
+            aria-label="descripcion personal"
+          >
+            <h3 class="seccion_descripcion__titulo" id="mis_hobbies_titulo">
+             Un poco sobre nosotros!
+            </h3>
+            <p
+              class="seccion_descripcion__parrafo"
+              aria-label="Detalles de mis hobbies"
+              aria-describedby="mis_hobbies_titulo"
+            >
+            Con una trayectoria destacada en el mundo de las finanzas, Gabriel Alejandro Paul, Víctor Roy Leguiza y Marcelo Chamorro se han consolidado como referentes en el sector. Sus especializaciones en análisis de mercado, gestión de patrimonios y economía internacional les permiten brindar una visión integral y actualizada del panorama económico actual.
+                                 
+        
+            </p>
+            <p
+              class="seccion_descripcion__parrafo"
+              aria-label="Detalles de mis hobbies"
+              aria-describedby="mis_hobbies_titulo">               
+            </p>
+          </div>
+          <div class="seccion_descripcion__porta_retrato">
+            <img
+              class="seccion_descripcion__imagen"
+              src="./static/img/profile/3economistas.jpeg"
+            
+            />
+          </div>
+        </section>
+      </div>
+    </article>
+    <article class="articulo proyectos" id="proyectos">
+      <h2 class="articulo__titulo">Aprendamos un poco...</h2>
+      <div class="contenedor_tarjetas_grid">
+        <article
+          class="tarjeta"
+          aria-label="recetas"
+        >
+          <img
+            class="tarjeta__imagen"
+            src="./static/img/proyectos/crecimiento_economico.jpeg"
+            
+          />
+          <div class="tarjeta__contenido">
+            <h3 class="tarjeta__titulo" id="titulo_proyecto_1">Crecimiento Económico:</h3>
+            <span class="tarjeta__divisor"></span>
+            <p
+              class="tarjeta__parrafo scroll scroll_fino"
+              aria-label="descripcion de proyecto personal"
+              aria-describedby="titulo_proyecto_1"
+            >
+            Analizamos las tendencias y factores que impulsan el crecimiento económico a nivel global y local. Incluye estudios de caso, estadísticas y previsiones futuras.
+            </p>
+            
+          </div>
+        </article>
+        <article
+          class="tarjeta"
+          aria-label="presentacion de proyecto personal"
+        >
+          <img
+            class="tarjeta__imagen"
+            src="./static/img/proyectos/inversiones_mercado.jpg"
+       
+          />
+          <div class="tarjeta__contenido">
+            <h3 class="tarjeta__titulo" id="titulo_proyecto_2">Inversiones y Mercados:</h3>
+            <span class="tarjeta__divisor"></span>
+            <p
+              class="tarjeta__parrafo scroll scroll_fino scroll_gris"
+              aria-label="descripcion de proyecto personal"
+              aria-describedby="titulo_proyecto_2"
+            >
+            Proporcionamos información sobre diferentes tipos de inversiones, análisis de mercados financieros, y consejos para inversores. Esto puede incluir acciones, bonos, criptomonedas, y otros instrumentos financieros.
+            
+            </p>
+           
+          </div>
+        </article>
+        <article
+          class="tarjeta"
+          aria-label="presentacion de proyecto personal"
+        >
+          <img
+            class="tarjeta__imagen"
+            src="./static/img/proyectos/politicas-monetarias-y-fiscales.jpg"
+           
+          />
+          <div class="tarjeta__contenido">
+            <h3 class="tarjeta__titulo" id="titulo_proyecto_3">Política Fiscal y Monetaria:</h3>
+            <span class="tarjeta__divisor"></span>
+            <p
+              class="tarjeta__parrafo scroll scroll_fino"
+              aria-label="descripcion de proyecto personal"
+              aria-describedby="titulo_proyecto_3"
+            >
+            Explicamos cómo las decisiones gubernamentales en términos de impuestos, gasto público y políticas monetarias afectan la economía. Incluye análisis de políticas actuales y sus impactos.
+            
+            </p>
+          
+          </div>
+        </article>
+        <article
+          class="tarjeta"
+          aria-label="presentacion de proyecto personal"
+        >
+          <img
+            class="tarjeta__imagen"
+            src="./static/img/proyectos/Educacion-Financiera.jpg"
+           
+          />
+          <div class="tarjeta__contenido">
+            <h3 class="tarjeta__titulo" id="titulo_proyecto_4">Educación Financiera:</h3>
+            <span class="tarjeta__divisor"></span>
+            <p
+              class="tarjeta__parrafo scroll scroll_fino scroll_gris"
+              aria-label="descripcion de proyecto personal"
+             
+            >
+           
+            Ofrecemos recursos y guías para mejorar la educación financiera de los lectores. Esto puede incluir temas como la gestión de deudas, ahorro, planificación para la jubilación, y presupuestos personales.
+
+            </p>
+          </div>
+        </article>
+
 {% endblock %}

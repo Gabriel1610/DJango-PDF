@@ -1,0 +1,289 @@
+:root {
+  /* colors */
+  --texto-primario: #ffffff; /* Blanco */
+  --texto-secundario: #d1d1d1; /* Gris claro */
+  --fondo-primario: #000000; /* Negro */
+  --fondo-primario-transparente: #00000080; /* Negro transparente */
+  --fondo-secundario: #0a0a0a; /* Negro oscuro */
+  --color-primario: #0000a5; /* Azul oscuro */
+  --color-primario-apagado: #060676; /* Azul más oscuro */
+  --color-secundario: #7070f9; /* Azul claro */
+  --color-terciario: #6f6f6f; /* Gris */
+
+
+  /* sizes */
+  --presentacion-titulo-tamanio: 4rem;
+  --presentacion-titulo-tamanio-grande: 3.4rem;
+  --presentacion-descripcion-tamanio: 1.2rem;
+  --titulo-tamanio: 3rem;
+  --sub-titulo-tamanio: 2rem;
+  --texto-tamanio: 1.1rem;
+  --enlaces-tamanio: 1.2rem;
+  --texto-peso-grueso: 700;
+  --texto-peso-regular: 400;
+  --texto-peso-fino: 300;
+}
+
+/* estilos generales */
+* {
+  /* normalizador */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* generales */
+  color: var(--texto-primario);
+  scroll-behavior: smooth;
+
+
+  .merriweather-light {
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .merriweather-regular {
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .merriweather-bold {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .merriweather-black {
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .merriweather-light-italic {
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .merriweather-regular-italic {
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .merriweather-bold-italic {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .merriweather-black-italic {
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+}
+
+html {
+  background-color: var(--fondo-primario);
+}
+body {
+  min-height: 100%;
+  position: relative;
+}
+.navegacion {
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+}
+.navegacion__enlace {
+  text-decoration: none;
+}
+.navegacion__titulo {
+  font-size: var(--titulo-tamanio);
+  text-shadow: 2px 2px 2px var(--fondo-secundario);
+}
+
+.principal {
+  background-color: var(--fondo-primario);
+}
+
+.presentacion {
+  width: 100%;
+  height: 100vh;
+  background-image: url("{% static 'img/profile/finanzas_economia.jpg' %}");
+  background-size: cover;
+  background-position: center;
+}
+.presentacion__contenedor_info {
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  background: linear-gradient(
+    90deg,
+    var(--fondo-primario-transparente) 20%,
+    transparent 40%
+  );
+}
+
+
+.presentacion__titulo {
+  font-size: calc(var(--presentacion-titulo-tamanio) * 1.2); 
+  color: var(--color-primario);
+  text-shadow: 2px 2px 2px white; 
+}
+
+
+.presentacion__parrafo {
+  max-width: 460px;
+  font-size: var(--presentacion-descripcion-tamanio);
+  color: var(--texto-secundario);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 1); 
+  background-color: rgba(255, 255, 255, 0.1);
+  }
+
+
+.articulo {
+  width: 100%;
+  height: 100vh;
+  padding: 2rem 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+.sobre_mi {
+  background: linear-gradient(
+    180deg,
+    rgb(15 8 16) 0%,
+    var(--fondo-primario) 10%,
+    var(--color-primario-apagado) 75%,
+    var(--color-primario) 90%
+  );
+}
+.proyectos {
+  background: linear-gradient(
+    180deg,
+    var(--color-primario) 0%,
+    var(--color-primario-apagado) 10%,
+    var(--fondo-primario) 55%
+  );
+    height: max-content;
+}
+
+.articulo__titulo {
+  font-size: var(--titulo-tamanio);
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 2px var(--fondo-secundario);
+}
+.articulo__contenedor_descripciones {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.seccion_descripcion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 40px;
+  background-color: var(--fondo-primario-transparente);
+  border-radius: 20px;
+}
+
+.seccion_descripcion__porta_retrato {
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+  background-color: var(--texto-primario);
+  cursor: pointer;
+}
+.seccion_descripcion__imagen {
+  width: 100%;
+  height: 240px;
+ 
+  object-fit: cover;
+}
+  .seccion_descripcion__info {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  max-height: 300px;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+}
+.seccion_descripcion__titulo {
+  font-size: var(--sub-titulo-tamanio);
+  padding: 1rem;
+  margin-bottom: 40px;
+}
+.seccion_descripcion__parrafo {
+  font-size: var(--texto-tamanio);
+  color: var(--texto-secundario);
+  text-wrap: pretty;
+}
+
+.contenedor_tarjetas_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; 
+  grid-template-rows: 1fr auto;
+  gap: 1rem;
+}
+.tarjeta {
+  max-width: 700px;
+  min-width: 1000px; 
+  background-color: var(--fondo-primario-transparente);
+  border-radius: 0.375rem;
+  box-shadow: 0 0 8px var(--color-primario-transparente);
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+}
+
+.tarjeta__contenido {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: var(--fondo-primario-transparente); 
+  backdrop-filter: blur(4px); 
+}
+
+.tarjeta__titulo {
+  font-size: var(--sub-titulo-tamanio);
+}
+.tarjeta__divisor {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primario);
+}
+
+.tarjeta__parrafo {
+  font-size: var(--texto-tamanio);
+  color: var(--texto-secundario);
+  overflow: auto;
+  flex-basis: 150px;
+  text-wrap: pretty;
+}
+.tarjeta__imagen {
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+}

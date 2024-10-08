@@ -18,6 +18,11 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <link
+            rel="stylesheet"
+            href="{% static 'css/style.css' %}"
+        />
+        <link rel="shortcut icon" href="./static/img/icono.ico" type="image/x-icon" />
     </head>
 
     <body>
@@ -33,6 +38,7 @@
                 <a class="flex-sm-fill text-sm-center nav-link" href="#">Registro</a>
                 <!-- <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
             </nav>
+            
         </header>
         {% block contenido %}
         {% endblock %}
