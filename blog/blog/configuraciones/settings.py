@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     'apps.posts',
     'apps.contacto',
+    'apps.usuario',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
+
+AUTH_USER_MODEL = 'usuario.Usuario'
