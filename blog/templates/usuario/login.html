@@ -21,7 +21,8 @@
         <div class="container">
             <table>{{ form }}</table>
             <br>
-            <a style="color: Oblack;" href="{% url 'apps.usuario: registrar' %}">Todavía no está registrado? Registrate</a> <br><br>
+            <a style="color: Oblack;" href="{% url 'apps.usuario:password_reset_done' %}">¿Olvidó la contraseña?</a> <br><br> #quedamos aca
+            <a style="color: Oblack;" href="{% url 'apps.usuario:registrar' %}">Todavía no está registrado? Registrate</a> <br><br>
             <button type="submit" class="btn btn-success btn-1g px-3">Iniciar sesión</button>
         </div>
     </form>

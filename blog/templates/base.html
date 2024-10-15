@@ -35,10 +35,10 @@
                 <a class="flex-sm-fill text-sm-center nav-link" href="#">Acerca de nosotros</a>
                 <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.posts:posts' %}">Posts</a>
                 <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
-                {% if user.is_authenticated %}
-                    <li><a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.usuario:logout' %}">Logout</a></li>
-                {% else %}
+                {% if not user.is_authenticated %}
                     <li><a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.usuario:login' %}">Login</a></li>
+                {% else %}
+                    <li><a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.usuario:logout' %}">Logout</a></li>
                 {% endif %}
                 <!-- <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
             </nav>

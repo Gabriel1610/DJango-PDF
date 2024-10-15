@@ -11,7 +11,7 @@ from django.urls import reverse
 # SweeAlert: https://lipis.github.io/bootstrap-sweetalert/)
 
 class RegistrarUsuario (CreateView):
-    template_name = 'registration/registrar.html'
+    template_name = 'usuario/registrar.html'
     form_class = RegistroUsuarioForm
 
     def form_valid(self, form):
@@ -20,15 +20,15 @@ class RegistrarUsuario (CreateView):
         return redirect('apps.usuario:registrar')
     
 class LoginUsuario(LoginView):
-    template_name = 'registration/login.html'
+    template_name = 'usuario/login.html'
 
     def get_success_url(self):
         messages.success(self.request, 'Login exitoso')
         return reverse('apps.usuario:login')
     
 class LogoutUsuario (LogoutView):
-    template_name = 'registration/logout.html'
+    template_name = 'usuario/logout.html'
 
     def get_success_url(self):
         messages.success(self.request, 'Logout exitoso')
-        return reverse('apps.usuario: logout')
+        return reverse('apps.usuario:logout')
