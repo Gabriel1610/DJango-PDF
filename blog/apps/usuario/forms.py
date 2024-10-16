@@ -9,7 +9,7 @@ class RegistroUsuarioForm(UserCreationForm):
         model = Usuario
         fields = ['username', 'first_name', 'last_name', 'password1', 'password2', 'email', 'imagen']
 
-class LoginForm(forms. Form):
+class LoginForm(forms.Form):
     username = forms.CharField(label='Nombre de usuario')
     password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
 
