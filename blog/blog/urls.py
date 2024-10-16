@@ -1,4 +1,4 @@
-from .views import index
+from .views import index, acercade
 
 """
 URL configuration for blog project.
@@ -25,6 +25,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),
+    path('', acercade, name = 'acercade'),
     path('', include('apps.posts.urls')),
     path('', include('apps.contacto.urls')),
     path('', include('apps.usuario.urls')),
