@@ -5,6 +5,9 @@ from django.views.generic import CreateView
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.views import PasswordResetDoneView
+from django.contrib.auth.models import Group
 
 # Create your views here. 
 # https://docs.djangoproject.com/en/4.2/ref/contrib/messages/
@@ -16,6 +19,8 @@ class RegistrarUsuario (CreateView):
 
     def form_valid(self, form):
         messages.success(self.request, 'Registro exitoso. Por favor, inicia sesión.')
+        group = Group.objects.get(name = 'Registrado')
+        self.object.groups.add(group)
         form.save()
         return redirect('apps.usuario:registrar')
     
