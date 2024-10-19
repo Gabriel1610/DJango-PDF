@@ -244,3 +244,9 @@
     width: 50%;
     object-fit: cover;
   }
+
+  #formulario_contacto {
+    color: blue;
+    text-align: center;
+    font-size: 24px;
+  }
