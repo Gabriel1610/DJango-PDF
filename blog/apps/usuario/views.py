@@ -17,7 +17,8 @@ class RegistrarUsuario (CreateView):
     template_name = 'usuario/registrar.html'
     form_class = RegistroUsuarioForm
 
-    def form_valid(self, form):
+    def form_valid(self, form): #lo soluciono gpt estaba mal en el pdf
+        self.object = form.save()  # Guarda el objeto para asegurarse de que no sea None
         messages.success(self.request, 'Registro exitoso. Por favor, inicia sesión.')
         group = Group.objects.get(name = 'Registrado')
         self.object.groups.add(group)
