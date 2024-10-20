@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post, Comentario, Categoria
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 from .forms import ComentarioForm, CrearPostForm, NuevaCategoriaForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
@@ -47,7 +47,6 @@ class PostDetailView(DetailView):
             context['form'] = form
             return self.render_to_response(context)
 
-
 class ComentarioCreateView(LoginRequiredMixin, CreateView):
     model = Comentario
     form_class = ComentarioForm
@@ -59,14 +58,13 @@ class ComentarioCreateView(LoginRequiredMixin, CreateView):
         form.instance.posts_id = self.kwargs['posts_id']
         return super().form_valid(form)
 
-
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = CrearPostForm
     template_name = 'posts/crear_post.html'
     success_url = reverse_lazy('apps.posts:posts')
 
-class CategoriaCreateView(CreateView):
+class CategoriaCreateView(LoginRequiredMixin, CreateView):
     model = Categoria
     form_class = NuevaCategoriaForm
     template_name = 'posts/crear_categoria.html'
@@ -77,3 +75,13 @@ class CategoriaCreateView(CreateView):
             return next_url
         else:
             return reverse_lazy('apps.posts:post_create')
+
+class CategoriaListView(ListView):
+    model = Categoria
+    template_name = 'posts/categoria_list.html'
+    context_object_name = 'categorias'
+
+class CategoriaDeleteView(LoginRequiredMixin, DeleteView):
+    model = Categoria
+    template_name = 'posts/categoria_confirm_delete.html'
+    success_url = reverse_lazy('apps.posts:categoria_list')
