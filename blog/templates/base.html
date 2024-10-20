@@ -36,11 +36,28 @@
                 <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'acercade' %}">Acerca de nosotros</a>
                 <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.posts:posts' %}">Posts</a>
                 <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
-                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    {% if user.is_authenticated %}
                     <li><a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.usuario:login' %}">Login</a></li>
-                {% else %}
-                    <li><a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.usuario:logout' %}">Logout</a></li>
-                {% endif %}
+                    <div class="dropdown-content">
+                        <table>
+                            <tr>
+                                {% if user.is_superuser or request.user[has_group: "Colaborador" %}
+                                    <td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td><a href="#">Lista de categorías</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">Lista de posts</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    {% else %}
+                        <li><a href="{% url 'apps.usuario:login' %}">Login</a></li>
+                    {% endif %}
+                </div>
                 <!-- <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
             </nav>
             

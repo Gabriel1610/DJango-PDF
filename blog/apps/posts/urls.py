@@ -12,5 +12,6 @@ urlpatterns = [
     path('posts/categoria', CategoriaCreateView.as_view(), name = 'crear_categoria'),
     path('categoria/', CategoriaListView.as_view(), name='categoria_list'),
     path('categoria/<int:pk>/delete/', CategoriaDeleteView.as_view(), name='categoria_delete'),
-    path('post/<int:pk>/modificar/', PostUpdateView.as_view(), name='post_update')
+    path('post/<int:pk>/modificar/', PostUpdateView.as_view(), name='post_update'),
+    path('post/<int:pk>/eliminar/', PostDeleteView.as_view(), name='post_delete'),
 ]

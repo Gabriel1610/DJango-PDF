@@ -92,3 +92,8 @@ class CategoriaDeleteView(LoginRequiredMixin, DeleteView):
     model = Categoria
     template_name = 'posts/categoria_confirm_delete.html'
     success_url = reverse_lazy('apps.posts:categoria_list')
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'posts/eliminar_post.html'
+    success_url = reverse_lazy('apps.posts:posts')
