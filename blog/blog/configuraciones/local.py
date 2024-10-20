@@ -5,7 +5,7 @@ import os
 
 # ... otras configuraciones si las tienes ...
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
