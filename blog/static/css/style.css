@@ -62,12 +62,17 @@
   html {
     background-color: #04709b
   }
+
   body {
-    min-height: 100%;
-    position: relative;
+    background-image: url('./static/img/baner_pagina_inicial.jpg');
+    min-height: 100vh; /* Use viewport height for better responsiveness */
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
   }
+
   .navegacion {
-    height: 80px;
+    height: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -250,3 +255,83 @@
     text-align: center;
     font-size: 24px;
   }
+
+/* Estilos para el input con id="id_username" */
+#id_username {
+  width: 346px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #686565;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Estilos para el input cuando esté en foco (al escribir o seleccionarlo) */
+#id_username:focus {
+  border-color: #5cb85c;
+  outline: none;
+  box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+}
+
+#id_password {
+  width: 346px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #686565;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Estilos para el input cuando esté en foco (al escribir o seleccionarlo) */
+#id_password:focus {
+  border-color: #5cb85c;
+  outline: none;
+  box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+}
+
+#inicio_sesion {
+  max-width: 450px;
+  width: 100%;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle efecto de tarjeta */
+  text-align: center; /* Centra el texto dentro del contenedor */
+  justify-content: center;
+  align-items: center;
+}
+
+#center_login_1 {
+  display: flex; /* Activa Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 600px; /* Ocupa el 100% de la altura de la ventana */
+}
+
+#boton_inicio {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  /* Efecto hover */
+  &:hover {
+    background-color: #2962FF;
+  }
+}
+  
+#banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100px; /* Ajusta la altura según tus necesidades */
+  background-image: url('img/baner_pagina_inicial.jpg');
+  background-size: cover;
+  background-position: center;
+}

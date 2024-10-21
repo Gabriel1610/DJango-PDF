@@ -5,11 +5,10 @@
 <title>{% block title %} Registro de usuario {% endblock title %}</title>
 
 {% block contenido %}
-<center>
+<center id="center_login_1">
 
-    <form method="POST" style="margin-top: 300px;">
-        <h1 class="h1">Iniciar sesión</h1>
-        <br>
+    <form method="POST" id="inicio_sesion">
+        <h1 class="h1 justify-center">Iniciar sesión</h1>
         <div class="messages">
             {% for message in messages %}
             <table{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table>
@@ -17,12 +16,14 @@
         </div>
         <br>
         {% csrf_token %}
-        <div class="container">
+        <div class="container justify-center">
             <table>{{ form }}</table>
-            <br>
-            <a style="color: Oblack;" href="{% url 'apps.usuario:password_reset' %}">¿Olvidó la contraseña?</a> <br><br> #quedamos aca
-            <a style="color: Oblack;" href="{% url 'apps.usuario:registrar' %}">Todavía no está registrado? Registrate</a> <br><br>
-            <button type="submit" class="btn btn-success btn-1g px-3">Iniciar sesión</button>
+            
+            <a class="font-semibold text-black hover:underline" href="{% url 'apps.usuario:password_reset' %}">¿Olvidó la contraseña?</a> <br><br>
+            <button type="submit" id="boton_inicio">Iniciar sesión</button>
+            <br><br>
+            <a class="font-semibold text-black hover:underline" href="{% url 'apps.usuario:registrar' %}">Todavía no está registrado? Registrate</a> <br><br>
+            
         </div>
     </form>
 </center>

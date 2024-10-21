@@ -1,0 +1,140 @@
+/* Importar la fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Aplicar la fuente Inter a toda la página */
+body {
+    font-family: 'Inter', sans-serif;
+    max-width: 80vw; /* Ocupa el 80% del viewport */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 20px; /* Espacio alrededor del contenido */
+    background-color: #f8f9fa; /* Fondo suave */
+    color: #343a40; /* Texto en un tono gris oscuro para mejor legibilidad */
+    line-height: 1.6; /* Mejor legibilidad */
+}
+
+/* Estilo para el encabezado */
+header {
+    text-align: center; /* Centrar el contenido del header */
+    padding: 20px;
+    background-color: #007bff; /* Color principal */
+    color: white; /* Texto en blanco */
+    border-radius: 10px; /* Bordes suaves */
+    margin-bottom: 20px; /* Separar del contenido siguiente */
+}
+
+/* Enlaces del menú de navegación */
+nav a {
+    color: #343a40; /* Tono gris oscuro */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 15px; /* Espaciado */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff; /* Azul elegante */
+    background-color: #e9ecef; /* Fondo claro al pasar el mouse */
+    border-radius: 5px;
+}
+
+/* Imágenes centradas */
+img {
+    display: block; /* Hace que la imagen sea un bloque */
+    margin: 0 auto; /* Centrar la imagen */
+    max-width: 400px; /* Adaptar la imagen al contenedor */
+    height: auto; /* Mantener la proporción */
+    border-radius: 8px; /* Bordes suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Estilo para el pie de página */
+footer {
+    text-align: center;
+    background-color: #343a40; /* Fondo gris oscuro */
+    color: #f8f9fa; /* Texto en un tono claro */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px; /* Bordes suaves */
+}
+
+/* Botones generales */
+button {
+    background-color: #007bff; /* Azul elegante */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Estilo de tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilos para formularios */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilos para dropdowns */
+.dropdown-content {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #343a40;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+    body {
+        max-width: 95vw; /* Más ancho en pantallas pequeñas */
+    }
+    
+    nav a {
+        display: block;
+        margin: 5px 0; /* Más espacio entre enlaces */
+    }
+}

@@ -1,4 +1,6 @@
 {% load static %}
+{% load colaborador_tags %}
+
 
 <!doctype html>
 <html lang="es-ar">
@@ -19,6 +21,10 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <!-- link tailwind-->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
         <link
             rel="stylesheet"
             href="{% static 'css/style.css' %}"
@@ -26,14 +32,17 @@
         <link rel="shortcut icon" href="./static/img/icono.ico" type="image/x-icon" />
     </head>
 
-    <body>
-        <header>
-            <a class = "flex-sm-fill text-sm-center nav-link active" href="#">
-                <img src="{% static 'img/cabecera.jpg' %}" style="max-width: 300px; margin: 30px;">
-            </a>
-            <nav class="nav nav-pills flex-column flex-sm-row">
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'index' %}">Inicio</a>
-                <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'acercade' %}">Acerca de nosotros</a>
+    <body class="bg-gray-300">
+        <br>
+        <header class="bg-gray-800 rounded-lg shadow m-4 dark:bg-gray-800">
+            <!--este es el nav original-->
+            <nav class="nav nav-pills flex-column flex-sm-row items-center">
+                <a href="https://campus-informatorio.chaco.gob.ar/" target="_blank" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="{% static 'img/icono_informatorio.png' %}" class="p-2 rounded-full" alt="Flowbite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white p-2">Econotorio</span>
+                </a>
+                <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none active " href="{% url 'index' %}">Inicio</a>
+                <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none active " href="{% url 'acercade' %}">Acerca de nosotros</a>
                 <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.posts:posts' %}">Posts</a>
                 <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
                 <div class="dropdown">
@@ -42,8 +51,8 @@
                     <div class="dropdown-content">
                         <table>
                             <tr>
-                                {% if user.is_superuser or request.user[has_group: "Colaborador" %}
-                                    <td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>
+                                {% if user.is_superuser or user|has_group:"Colaborador" %}
+                                <td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>
                                 {% endif %}
                             </tr>
                             <tr>
@@ -60,15 +69,33 @@
                 </div>
                 <!-- <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
             </nav>
+
+
+            
+            
+
+            
             
         </header>
         {% block contenido %}
         {% endblock %}
-        <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
-            <div class="container text-center">
-                <small>Copyright &copy; Your Website</small>
+       
+        <footer class="bg-gray-800 rounded-lg shadow m-4 dark:bg-gray-800">
+            <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+                <span class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0 hover:underline"><a href="https://campus-informatorio.chaco.gob.ar/" target="_blank">© 2024 Informatorio™ Comisión 7 Equipo 8. Todos los derechos reservados.</a>
+                </span>
+                <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0">
+                    <a href="https://github.com/Gabriel1610" target="_blank"><li class="hover:underline me-4 md:me-6 text-white" >Gabriel Alejandro Paul</li></a>
+                    <li class="hover:underline me-4 md:me-6 text-white">Marcelo Horacio Chamorro</li>
+                    <a href="https://github.com/royleguiza" target="_blank"><li class="hover:underline me-4 md:me-6 text-white" href="https://github.com/royleguiza" target="_blank">Victor Roy Leguiza</li></a>
+                </ul>
             </div>
         </footer>
+        <br>
+        
+        
+
+
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

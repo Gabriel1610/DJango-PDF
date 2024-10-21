@@ -11,7 +11,8 @@ from django.contrib.auth.views import PasswordResetDoneView
 from django.contrib.auth.models import Group
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from posts import Comentario, Post
+from apps.posts.models import Comentario, Post
+
 
 # Create your views here. 
 # https://docs.djangoproject.com/en/4.2/ref/contrib/messages/
