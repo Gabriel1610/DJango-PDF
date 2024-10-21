@@ -34,39 +34,49 @@
 
     <body class="bg-gray-300">
         <br>
-        <header class="bg-gray-800 rounded-lg shadow m-4 dark:bg-gray-800">
+        <header class="rounded bg-gray-800 shadow m-4 dark:bg-gray-800 justify-between">
             <!--este es el nav original-->
-            <nav class="nav nav-pills flex-column flex-sm-row items-center">
-                <a href="https://campus-informatorio.chaco.gob.ar/" target="_blank" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="{% static 'img/icono_informatorio.png' %}" class="p-2 rounded-full" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white p-2">Econotorio</span>
-                </a>
-                <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none active " href="{% url 'index' %}">Inicio</a>
-                <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none active " href="{% url 'acercade' %}">Acerca de nosotros</a>
-                <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.posts:posts' %}">Posts</a>
-                <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
-                <div class="dropdown">
-                    {% if user.is_authenticated %}
-                    <li><a class="flex-sm-fill text-sm-center nav-link" href="{% url 'apps.usuario:login' %}">Login</a></li>
-                    <div class="dropdown-content">
-                        <table>
-                            <tr>
-                                {% if user.is_superuser or user|has_group:"Colaborador" %}
-                                <td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>
-                                {% endif %}
-                            </tr>
-                            <tr>
-                                <td><a href="#">Lista de categorías</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Lista de posts</a></td>
-                            </tr>
-                        </table>
+            <div class="bg-gray-700 flex items-center justify-center">
+                    <nav class="nav nav-pills flex-column flex-sm-row items-center">
+                        <a href="https://campus-informatorio.chaco.gob.ar/" target="_blank" class="flex items-center space-x-3 rtl:space-x-reverse">
+                            <img src="{% static 'img/icono_informatorio.png' %}" class="p-4 rounded-full" alt="Flowbite Logo" />
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white ">Econotorio</span>
+                        </a>
+                <div class="justify-between">
+                    <button class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none active " href="{% url 'index' %}">Inicio</button>
+                    <button class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'acercade' %}">Acerca de nosotros</button>
+                    <button class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.posts:posts' %}">Posts</button>
+                    <button class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.contacto:contacto' %}">Contacto</button>
+
+                    <div class="dropdown">
+                        {% if user.is_authenticated %}
+                        <li><button class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" >{{ user.username }}</button></li>
+
+                            <div class="dropdown-content">
+                                <table class="dropdown-content hidden">
+                                    <tr>
+                                        {% if user.is_superuser or user|has_group:"Colaborador" %}
+                                        <td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">Lista de categorías</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">Lista de posts</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="{% url 'apps.usuario:logout' %}">Logout</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        {% else %}
+                            <li><a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.usuario:login' %}">Login</a></li>
+                        {% endif %}
                     </div>
-                    {% else %}
-                        <li><a href="{% url 'apps.usuario:login' %}">Login</a></li>
-                    {% endif %}
                 </div>
+
+                
                 <!-- <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
             </nav>
 
