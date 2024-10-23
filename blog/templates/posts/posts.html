@@ -10,6 +10,13 @@
     <a id="boton_post" href="{% url 'apps.posts:crear_post'}">Crear nuevo post</a>
 </div>
 {% endif %}
+
+<h2>Ordenar por:</h2>
+<ul>
+    <a id="boton_post" href="{% url 'apps.posts:posts' %} ?orden=reciente">Más reciente</a>
+    <a id="boton_post" href="{% url 'apps.posts: posts' %} ?orden-antiguo">Más antiguo</a>
+    <a id="boton_post" href="{% url 'apps.posts:posts' %} ?orden-alfabetico">Orden alfabético</a>
+</ul>
     {% for i in posts %}
         <br>
         <li>{{ i.titulo }}</li>

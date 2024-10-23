@@ -21,6 +21,23 @@ class PostListView(ListView):
     template_name = "posts/posts.html"
     context_object_name = "posts"
 
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        orden = self.request.GET.get('orden')
+        if orden == 'reciente':
+            queryset = queryset.order_by('-fecha')
+        elif orden == 'antiguo':
+            queryset = queryset.order_by('fecha')
+        elif orden == 'alfabetico':
+            queryset = queryset.order_by('titulo')
+        return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['orden'] = self.request.GET.get('orden', 'reciente')
+        return context
+
 class PostDetailView(DetailView):
     model = Post
     template_name = "posts/post_individual.html"
@@ -116,3 +133,12 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = 'posts/eliminar_post.html'
     success_url = reverse_lazy('apps.posts:posts')
+
+
+class PostsPorCategoriaView(ListView):
+    model = Post
+    template_name = 'posts/posts_por_categoria.html'
+    context_object_name = 'posts'
+    
+    def get_queryset(self):
+        return Post.objects.filter(categoria_id=self.kwargs['pk'])
