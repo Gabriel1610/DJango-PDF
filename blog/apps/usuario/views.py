@@ -37,12 +37,14 @@ class LoginUsuario(LoginView):
         messages.success(self.request, 'Login exitoso')
         return reverse('apps.usuario:login')
     
+''''   cambiar esto !!!!!!!!----------------
 class LogoutUsuario (LogoutView):
     template_name = 'usuario/logout.html'
 
     def get_success_url(self):
         messages.success(self.request, 'Logout exitoso')
         return reverse('apps.usuario:logout')
+        ''' 
 
 
 class UsuarioListView(LoginRequiredMixin, ListView):
