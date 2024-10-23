@@ -38,7 +38,7 @@
             <!--este es el nav original-->
             <div class="bg-gray-700 flex items-center justify-center">
                     <nav class="nav nav-pills flex-column flex-sm-row items-center">
-                        <a href="https://campus-informatorio.chaco.gob.ar/" target="_blank" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <a href="{% url 'index' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
                             <img src="{% static 'img/icono_informatorio.png' %}" class="p-4 rounded-full" alt="Flowbite Logo" />
                             <span class="self-center text-2xl font-semibold whitespace-nowrap text-white ">Econotorio</span>
                         </a>
@@ -67,14 +67,7 @@
                                     </tr>
                                     <tr>
                                         <td><form href="{% url 'apps.usuario:logout' %}">Logout</form></td>
-                                        <!-- esto que esta aca debajo paso la profesora, y nos dijo que editemos el url.py de usuarios el cual esta comentado 
-                                        <li>
-                                        <form method="post" action="{% url 'apps.blog_auth:cerrar_sesion' %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="dropdown-item">Cerrar sesión</button>
-                                        </form>
-                                        </li>
-                                        -->
+                                        
                                     </tr>
                                 </table>
                             </div>
