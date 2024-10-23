@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block contenido %}
 
 <center>
-    <form method="POST" style="margin: 200px;"> 
-        <h1>Formulario de contacto</h1>
-        <br>
-        <table>
-            {% csrf_token %}
-            {{ form }}
-        </table>
-        <input type="submit" value="enviar">
-    </form>
+    <div id="contacto_html">
+        <form method="POST" style="margin: 200px;"> 
+            <h1>Formulario de contacto</h1>
+            <br>
+            <table>
+                {% csrf_token %}
+                {{ form }}
+            </table>
+            <input type="submit" value="enviar">
+        </form>
+    </div>
 </center>
 
 {% endblock %}

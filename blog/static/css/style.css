@@ -256,8 +256,26 @@
     font-size: 24px;
   }
 
+input{
+  width: 450px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #686565;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
 /* Estilos para el input con id="id_username" */
-#id_username,#id_first_name, #id_last_name, #id_password1, #id_password2, #id_email {
+#id_username,#id_first_name, #id_last_name, #id_password1, #id_password2, #id_email, #id_nombre_apellido, #id_nombre_apellido, #id_mensaje{
+  width: 450px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #686565;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+input{
   width: 450px;
   padding: 10px;
   margin-bottom: 20px;
@@ -289,7 +307,7 @@
   box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
 }
 
-#inicio_sesion, #registracion {
+#inicio_sesion, #registracion{
   max-width: 600px;
   width: 100%;
   padding: 40px;
@@ -322,6 +340,8 @@
     background-color: #2962FF;
   }
 }
+
+
 
 
 .dropdown {
