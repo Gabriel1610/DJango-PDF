@@ -326,7 +326,7 @@ input{
   height: 600px; /* Ocupa el 100% de la altura de la ventana */
 }
 
-#boton_inicio, #boton_registrar {
+#boton_inicio, #boton_registrar, #boton_post {
   background-color: black;
   color: white;
   font-weight: bold;

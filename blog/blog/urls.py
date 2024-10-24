@@ -27,7 +27,7 @@ handler404 = pagina_404
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),
-    path('', acercade, name = 'acercade'),
+    path('acercade/', acercade, name = 'acercade'),
     path('', include('apps.posts.urls')),
     path('', include('apps.contacto.urls')),
     path('', include('apps.usuario.urls')),

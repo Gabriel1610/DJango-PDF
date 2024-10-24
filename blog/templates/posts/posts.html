@@ -5,16 +5,17 @@
 {% block contenido %}
 <div class="container-fluid" style="margin: 200px;">
 
-{% if user.is_superuser or request.user|has_group:"Colaborador"}
+<!--% if user.is_superuser or request.user|has_group:"Colaborador"-->
+{% if user.is_superuser or user|has_group:"Colaborador" %}
 <div class="container-fluid" style="margin-top: 300px;">
-    <a id="boton_post" href="{% url 'apps.posts:crear_post'}">Crear nuevo post</a>
+    <a class="rounded bg-blue-700 p-2" id="boton_post" href="{% url 'apps.posts:crear_post' %}">Crear nuevo post</a>
 </div>
 {% endif %}
 
 <h2>Ordenar por:</h2>
 <ul>
     <a id="boton_post" href="{% url 'apps.posts:posts' %} ?orden=reciente">Más reciente</a>
-    <a id="boton_post" href="{% url 'apps.posts: posts' %} ?orden-antiguo">Más antiguo</a>
+    <a id="boton_post" href="{% url 'apps.posts:posts' %} ?orden-antiguo">Más antiguo</a>
     <a id="boton_post" href="{% url 'apps.posts:posts' %} ?orden-alfabetico">Orden alfabético</a>
 </ul>
     {% for i in posts %}
