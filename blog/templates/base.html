@@ -39,7 +39,7 @@
 
     <body class="bg-white">
         <br>
-        <header class="rounded shadow m-4 dark:bg-gray-800 justify-between">
+        <header class="rounded shadow m-6 dark:bg-gray-800 justify-between">
             <!--este es el nav original-->
             <div class="rounded bg-dark flex items-center justify-center">
                     <nav class="nav nav-pills flex-column flex-sm-row items-center">
@@ -47,68 +47,69 @@
                             <img src="{% static 'img/icono_informatorio.png' %}" class="p-4 rounded-full" alt="Flowbite Logo" />
                             <span class="self-center text-2xl font-semibold whitespace-nowrap text-white ">Econotorio</span>
                         </a>
-                <div class="justify-between">
-                    <a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'index' %}">Inicio</a>
-                    <a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'acercade' %}">Acerca de nosotros</a>
-                    <a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.posts:posts' %}">Posts</a>
-                    <a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
+                        <div class="justify-between">
+                            <a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'index' %}">Inicio</a>
+                            <a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'acercade' %}">Acerca de nosotros</a>
+                            <a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.posts:posts' %}">Posts</a>
+                            <a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
 
-                    <div class="dropdown transition duration-300 hover:delay-150 ">
-                        {% if user.is_authenticated %}
-                        
-                        <li><button class="bg-white text-gray-900 rounded-lg hover:bg-blue-700   font-bold py-2 px-4 rounded-none" >{{ user.username }}</button></li>
-                        <table class="dropdown-content hidden">
-
-                            <tr>
-                                {% if user.is_superuser or user|has_group:"Colaborador" %}
-                                <!--<td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>-->
-                                {% endif %}
-                            </tr>
-                            <tr>
-                                <td><a href="{% url 'apps.posts:categoria_list' %}">Lista de categorías</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="{% url 'apps.posts:posts' %}">Lista de posts</a></td>
-                            </tr>
-                            <tr>
-                                <td><form action="{% url 'apps.usuario:logout' %}" method="post"><!----->
-                                    {% csrf_token %}
-                                    <button type="submit" class=" bg-dark rounded hover:bg-blue-700 text-white font-bold px-2 rounded-none">Logout</button>
-                                    </form>
+                            <div class="dropdown transition duration-300 hover:delay-150 ">
+                                {% if user.is_authenticated %}
                                 
-                            </tr>
-                        </table>
-
-                        <!--<li><button class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" >{{ user.username }}</button></li>
-
-                            <div class="dropdown-content hidden">
-                                
+                                <li><button class="bg-white text-gray-900 rounded-lg hover:bg-blue-700   font-bold py-2 px-4 rounded-none" >{{ user.username }}</button></li>
                                 <table class="dropdown-content hidden">
+
                                     <tr>
                                         {% if user.is_superuser or user|has_group:"Colaborador" %}
-                                        <td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>
+                                        <!--<td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>-->
                                         {% endif %}
                                     </tr>
                                     <tr>
-                                        <td><a href="#">Lista de categorías</a></td>
+                                        <td><a href="{% url 'apps.posts:categoria_list' %}">Lista de categorías</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="#">Lista de posts</a></td>
+                                        <td><a href="{% url 'apps.posts:posts' %}">Lista de posts</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="{% url 'apps.usuario:logout' %}">Logout</a></td>
+                                        <td><form action="{% url 'apps.usuario:logout' %}" method="post"><!----->
+                                            {% csrf_token %}
+                                            <button type="submit" class=" bg-dark rounded hover:bg-blue-700 text-white font-bold px-2 rounded-none">Logout</button>
+                                            </form>
                                         
                                     </tr>
                                 </table>
-                            </div>-->
-                        {% else %}
-                            <li><a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.usuario:login' %}">Login</a></li>
-                        {% endif %}
-                </div>
+
+                                <!--<li><button class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" >{{ user.username }}</button></li>
+
+                                    <div class="dropdown-content hidden">
+                                        
+                                        <table class="dropdown-content hidden">
+                                            <tr>
+                                                {% if user.is_superuser or user|has_group:"Colaborador" %}
+                                                <td><a href="{% url 'apps.usuario:usuario_list' %}">Lista de usuarios</a></td>
+                                                {% endif %}
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#">Lista de categorías</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#">Lista de posts</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="{% url 'apps.usuario:logout' %}">Logout</a></td>
+                                                
+                                            </tr>
+                                        </table>
+                                    </div>-->
+                                {% else %}
+                                    <li><a class="rounded-lg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-none" href="{% url 'apps.usuario:login' %}">Login</a></li>
+                                {% endif %}
+                        </div>
 
                 
-                <!-- <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> este-->
-            </nav>
+                        <!-- <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> este-->
+                    </nav>
+            </div>
 
 
             
