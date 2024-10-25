@@ -3,15 +3,12 @@
 
 {% block contenido %}
 <center>
-<div class="container-fluid" style="margin: 200px;">
-    <h1>Categorías</h1>
-    <br>
+<div class="shadow max-w-screen-lg py-2">
+    <h1 class="h3 text-bold">Categorías</h1>
     <ul>
         {% for categoria in categorias %}
-            <li>{{ categoria.nombre }}
-            (<a style="color:
-            black;"
-            href="{% url 'apps.posts:categoria_delete' pk-categoria.pk %}">Eliminar</a>)</li>
+            <li class="text-left p-1 text-bold ">{{ categoria.nombre }}
+                <a class="btn btn-primary bg-gray-700 rounded border border-red-900 text-left py-1 text-bold hover:bg-red-700  hover:underline hover:text-white" href="{% url 'apps.posts:categoria_delete' categoria.pk %}">Eliminar</a></li>
             {% empty %}
             <li>No hay categorías</li>
         {% endfor %}
