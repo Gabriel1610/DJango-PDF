@@ -21,7 +21,7 @@
                 <p class="flex-grow font-medium text-left text-pretty">{{ posts.texto }}</p>
             </div>
             {% if posts.imagen %}
-            <img class="aspect-4/3 object-contain object-cover rounded-lg shadow" src="{{ posts.imagen.url }}" alt="">
+            <img class="max-w-lg max-h-150 object-contain object-cover rounded-lg shadow" src="{{ posts.imagen.url }}" alt="">
             {% else %}
             <p>No hay imagen disponible</p>
             {% endif %}
