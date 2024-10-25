@@ -2,21 +2,22 @@
 {% load static %}
 {% load colaborador_tags %}
 
+
 {% block contenido %}
-<div class="container-fluid" style="margin: 200px;">
+<div class="container max-w-xl px-4 py-8">
 
 <!--% if user.is_superuser or request.user|has_group:"Colaborador"-->
 {% if user.is_superuser or user|has_group:"Colaborador" %}
-<div class="container-fluid" style="margin-top: 300px;">
-    <a class="rounded bg-blue-700 p-2" id="boton_post" href="{% url 'apps.posts:crear_post' %}">Crear nuevo post</a>
+<div class="flex justify-center mb-8">
+    <a href="{% url 'apps.posts:crear_post' %}" class="btn btn-primary rounded bg-blue-700 py-2 px-4 text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ">Crear nuevo post</a>
 </div>
 {% endif %}
 
-<h2>Ordenar por:</h2>
-<ul>
-    <a id="boton_post" href="{% url 'apps.posts:posts' %} ?orden=reciente">Más reciente</a>
-    <a id="boton_post" href="{% url 'apps.posts:posts' %} ?orden-antiguo">Más antiguo</a>
-    <a id="boton_post" href="{% url 'apps.posts:posts' %} ?orden-alfabetico">Orden alfabético</a>
+<h2 class="text-2xl font-bold mb-4 center">Ordenar por:</h2>
+<ul class="list-disc pl-4 justify-between">
+    <a href="{% url 'apps.posts:posts' %} ?orden=reciente" class="btn btn-primary rounded bg-blue-700 py-2 px-4 text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-blue-500 hover:underline p-4">Más reciente</a>
+    <a href="{% url 'apps.posts:posts' %} ?orden-antiguo" class="btn btn-primary rounded bg-blue-700 py-2 px-4 text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-blue-500 hover:underline p-4">Más antiguo</a>
+    <a href="{% url 'apps.posts:posts' %} ?orden-alfabetico" class="btn btn-primary rounded bg-blue-700 py-2 px-4 text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500  text-blue-500 hover:underline p-4">Orden alfabético</a>
 </ul>
     {% for i in posts %}
         <br>
@@ -29,7 +30,7 @@
         </a>
 
         {% empty %}
-        <h1>No hay registros</h1>
+        <h1 class="text-center text-gray-800 font-bold p-4 font-bold h2">No hay registros</h1>
     {% endfor %}
 </div>
 {% endblock %}

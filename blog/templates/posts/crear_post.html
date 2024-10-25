@@ -1,20 +1,37 @@
 {% extends 'base.html' %}
 {% load colaborador_tags %}
+<style>
+    center{
+        width: 450px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #686565;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+    div{
+        max-width: 200px;
+    }
+    textarea#id_texto{
+        width: 450px;
+    }
+</style>
 
 {% block contenido %}
 
 <center>
 {% if user.is_superuser or request.user|has_group:"Colaborador" %}
-    <div class="container-fluid" style="margin: 200px;">
-    <div class="container-fluid" style="margin-top: 300px;">
+    <div>
+    <div>
         <a id="boton_post" href="{% url 'apps.posts:crear_categoria' %}">Crear nueva categoría</a>
     </div>
     
-    <h1>Crear Post</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <h1 class="p-4 h2 font-semibold">Crear Post</h1>
+    <form class="justify-center max-w-md font-semibold py-2" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p}}
-        <input type="submit" value="Guardar">
+        <br>
+        <input class="font-bold hover:bg-green-700 hover:text-white hover:scale-110 transition duration-300 hover:delay-150 " type="submit" value="Guardar">
     </form>
 
     </div>

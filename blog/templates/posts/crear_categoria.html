@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
+<style>
+    #agregar_categoria{
+        width: 450px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #686565;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+</style>
 
 {% block contenido %}
 
 <center>
-<div class="container-fluid" style="margin: 200px;">
-    <h1>Agregar nueva categoría</h1>
-    <form method="post">
+<div class="agregar_categoria" style="margin: 200px;">
+    <h1 class="h2 justify-center">Agregar nueva categoría</h1>
+    <form class="max-w-lg font-bold" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Agregar">
+        <input class="font-bold hover:bg-green-700 hover:text-white hover:scale-110 transition duration-300 hover:delay-150 " type="submit" value="Agregar">
     </form>
-    <div class="container-fluid" style="margin-top: 300px;">
+    <div class="container-fluid" style="margin-top: 10px;">
         <a id="boton_post"
         href="{% url 'apps.posts:categoria_list' %}">Listar todas las categorias</a>
     </div>
