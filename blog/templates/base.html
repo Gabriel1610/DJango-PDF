@@ -34,11 +34,11 @@
         <link rel="shortcut icon" href="./static/img/icono.ico" type="image/x-icon" />
     </head>
 
-    <body class="bg-gray-300">
+    <body class="bg-white">
         <br>
-        <header class="rounded bg-gray-800 shadow m-4 dark:bg-gray-800 justify-between">
+        <header class="rounded shadow m-4 dark:bg-gray-800 justify-between">
             <!--este es el nav original-->
-            <div class="bg-gray-700 flex items-center justify-center">
+            <div class="rounded bg-dark flex items-center justify-center">
                     <nav class="nav nav-pills flex-column flex-sm-row items-center">
                         <a href="{% url 'index' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
                             <img src="{% static 'img/icono_informatorio.png' %}" class="p-4 rounded-full" alt="Flowbite Logo" />
@@ -68,7 +68,7 @@
                                         <td><a href="#">Lista de posts</a></td>
                                     </tr>
                                     <tr>
-                                        <td><form href="{% url 'apps.usuario:logout' %}">Logout</form></td>
+                                        <td><a href="{% url 'apps.usuario:logout' %}">Logout</a></td>
                                         
                                     </tr>
                                 </table>
@@ -106,7 +106,7 @@
         {% block contenido %}
         {% endblock %}
        
-        <footer class="bg-gray-800 rounded-lg shadow m-4 dark:bg-gray-800">
+        <footer class="bg-dark rounded-lg shadow m-4 dark:bg-gray-800">
             <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
                 <span class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-gray-400 sm:mt-0 hover:underline"><a href="https://campus-informatorio.chaco.gob.ar/" target="_blank">© 2024 Informatorio™ Comisión 7 Equipo 8. Todos los derechos reservados.</a>
                 </span>

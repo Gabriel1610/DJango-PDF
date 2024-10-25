@@ -1,67 +1,82 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load colaborador_tags %}
+<style>
+    textarea{
+        border: 2px;
+        background-color: black;
+    }
+</style>
 
 {% block contenido %}
 
 <center>
-    <div class="container-fluid" style="margin: 200px;">
-        <li>{{ posts.titulo }}</li>
-        <li>{{ posts.subtitulo }}</li>
-        <li>{{ posts.categoria }}</li>
-        <br>
-        <li>{{ posts.texto }}</li>
-        {% if posts.imagen %}
-        <img src="{{ posts.imagen.url }}" alt="">
-        {% else %}
-        <p>No hay imagen disponible</p>
-        {% endif %}
-        {% if user.is_superuser or request.user|has_group:"Colaborador" %}
-            <div class="container-fluid" style="margin-top: 300px;">
-                <a id="boton_post" href="{% url 'apps.posts:post_update' pk=posts.id %}">Modificar Post</a>
+    <div class="bg-white rounded-lg shadow p-4 container max-w-screen-xl flex flex-col gap-4">
+        <h2 class="h2">{{ posts.titulo }}</h2>
+        <p class="h6 italic text-left">{{ posts.subtitulo }}</p>
+        <p class="font-bold text-left">Categoria: {{ posts.categoria }}</p>
+        <p class="font-bold text-left text-green-700">Autor: {{ posts.autor }}</p>
+        <div class="flex flex-row">
+            <div>
+                <p class="flex-grow font-medium text-left text-pretty">{{ posts.texto }}</p>
             </div>
-            <div class="container-fluid" style="margin-top: 300px;">
-                <a id="boton_post" href="{% url 'apps.posts:post_delete' pk=posts.pk %}">Eliminar Post</a>
+            {% if posts.imagen %}
+            <img class="aspect-4/3 object-contain object-cover rounded-lg shadow" src="{{ posts.imagen.url }}" alt="">
+            {% else %}
+            <p>No hay imagen disponible</p>
+            {% endif %}
+        </div>
+        {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+            <div class="container-fluid" style="margin-top: 60px;">
+                <a class="border border-black bg-white-1000 text-dark font-bold px-4 py-2 rounded-lg hover:bg-yellow-300  hover:underline transition duration-300 hover:delay-150" href="{% url 'apps.posts:post_update' pk=posts.id %}">Modificar Post</a>
+            
+                <a class="border border-black bg-white-1000 text-dark font-bold px-4 py-2 rounded-lg hover:bg-red-800 hover:text-red-100  hover:underline transition duration-300 hover:delay-150" href="{% url 'apps.posts:post_delete' pk=posts.pk %}">Eliminar Post</a>
             </div>
         {% endif %}
     </div>
-
-    {$ include 'comentario/crear_comentario.html' %}
+    <br>
+<!--aca iria el sto don doble identacion
+        {$ include 'comentario/crear_comentario.html' %} --->
+        
 </center>
 
 <center>
-    <div class="container-fluid" style="margin-bottom: 20px;">
-        <h4>Comentarios</h4>
-        <br><br>
-    </div>
-    <div class="container-fluid" style="margin-bottom: 20px;"></div>
-        {% for comentario in comentarios %}
-            <table>{{ comentario.usuario }} - {{ comentario.fecha }}</table>
-            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0"> 
-                <p>{{ comentario.texto }}</p>
-                <br><br>
-            </ul>
-        {% empty %}
-        <li>No hay comentarios - Puedes ser el primero en comentar!</li> 
-        {% endfor %}
-    </div>
-    <a id="comentario"></a>
-    <div class="container-fluid" style="margin-bottom: 100px;">
-        <form method="POST" style="margin-bottom: 100px; margin-top: 100px;">
-            {% csrf_token %}
-            {% if user.is_authenticated %}
-            <h2>Deja tu comentario</h2>
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p}}
-                    <input type="submit" value="Comentar">
-                </form>
-            {% else %}
-                <h2>Debes iniciar sesión o registrarte para comentar</h2>
-                <a class="btn btn-success btn-lg" href="{% url 'apps.usuario: login' %}?next={{ request.path }}#comentario">Iniciar sesión</a>
-                <input type="hidden" name="next" value="{{ request.path }}">
-            {% endif %}
-        </form>
+    <div class="bg-white rounded-lg shadow p-4 container max-w-screen-xl flex flex-col gap-4" >
+        <div class="container-fluid" style="margin-bottom: 20px;">
+            <h4 class="h5 font-bold">Comentarios</h4>
+        </div>
+        <div>
+            {% for comentario in comentarios %}
+            <div class="justify-center border p-2">
+                <h6 class="h6 font-bold text-left">{{ comentario.usuario }}</h6>
+                <p class="text-left text-sm" >{{ comentario.fecha }}</p>
+                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0"> 
+                    <p class="text-left italic">{{ comentario.texto }}</p>
+                    <br>
+                </ul>
+            </div>
+            {% empty %}
+            <li class="font-bold h5" >No hay comentarios - Puedes ser el primero en comentar! 😁</li> 
+            {% endfor %}
+        </div>
+        <div class="bg-gray-200 rounded shadow">
+            <form  method="POST" style="margin-bottom: 20px; margin-top: 20px;">
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                <h2 class="font-bold h4 text-dark">Deja tu comentario</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p}}
+                        <br>
+                        <input class="font-bold hover:bg-green-700 hover:text-white hover:scale-110 transition duration-300 hover:delay-150 " type="submit" value="Comentar">
+                    </form>
+                {% else %}
+                    <h2>Debes iniciar sesión o registrarte para comentar</h2>
+                    <a class="btn btn-success btn-lg" href="{% url 'apps.usuario: login' %}?next={{ request.path }}#comentario">Iniciar sesión</a>
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                {% endif %}
+            </form>
+        </div>
     </div>
 </center>
 
