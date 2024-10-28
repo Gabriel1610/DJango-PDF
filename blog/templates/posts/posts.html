@@ -22,7 +22,7 @@
 <h2 class="h3 text-bold text-left">Post:</h2>
     {% for i in posts %}
     
-    <div class="hover:scale-110">
+    <div class="transform hover:scale-110 transition duration-300 ease-in-out">
         <article class="border border-gray-700 py-2 hover:scale-110">
             <div class="flex flex-row justify-between p-4">
                 <div>
@@ -32,7 +32,9 @@
                     <p>Categoria: {{ i.categoria }}</p>
                     <p>Autor: <strong>{{ i.autor }}</strong></p></a>
                 </div>
-                <a href="{% url 'apps.posts:post_individual' i.id %}" ><img class="max-h-32 w-auto object-contain object-cover rounded-lg shadow transform hover:scale-110 transition duration-300 ease-in-out" src="{{ i.imagen.url }}" alt=""></a>
+                <a href="{% url 'apps.posts:post_individual' i.id %}" >
+                    <img class="max-h-32 w-auto object-contain object-cover rounded-lg shadow transform hover:scale-110 transition duration-300 ease-in-out" src="{{ i.imagen.url }}" alt="">
+                </a>
             </div>
         </article>
     </div>

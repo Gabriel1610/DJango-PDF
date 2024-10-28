@@ -71,8 +71,8 @@
                         <input class="font-bold hover:bg-green-700 hover:text-white hover:scale-110 transition duration-300 hover:delay-150 " type="submit" value="Comentar">
                     </form>
                 {% else %}
-                    <h2>Debes iniciar sesión o registrarte para comentar</h2>
-                    <a class="btn btn-success btn-lg" href="{% url 'apps.usuario: login' %}?next={{ request.path }}#comentario">Iniciar sesión</a>
+                    <h2 class="h5 p-4">Debes iniciar sesión o registrarte para comentar</h2>
+                    <a class="btn btn-success btn-lg" href="{% url 'apps.usuario:login' %}?next={{ request.path }}#comentario">Iniciar sesión</a>
                     <input type="hidden" name="next" value="{{ request.path }}">
                 {% endif %}
             </form>
