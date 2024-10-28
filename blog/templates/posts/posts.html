@@ -24,9 +24,16 @@
     
     <div class="hover:scale-110">
         <article class="border border-gray-700 py-2 hover:scale-110">
-            <a href="{% url 'apps.posts:post_individual' i.id %}" class="h5 text-bold hover:underline hover:text-blue-800">{{ i.titulo }}</a>
-            <p>{{ i.subtitulo }}</p>
-            <p>Categoria: {{ i.categoria }}</p>
+            <div class="flex flex-row justify-between p-4">
+                <div>
+                    <a href="{% url 'apps.posts:post_individual' i.id %}" >
+                    <p class="h5 text-bold hover:underline hover:text-blue-800">{{ i.titulo }}</p>
+                    <p>{{ i.subtitulo }}</p>
+                    <p>Categoria: {{ i.categoria }}</p>
+                    <p>Autor: <strong>{{ i.autor }}</strong></p></a>
+                </div>
+                <a href="{% url 'apps.posts:post_individual' i.id %}" ><img class="max-h-32 w-auto object-contain object-cover rounded-lg shadow transform hover:scale-110 transition duration-300 ease-in-out" src="{{ i.imagen.url }}" alt=""></a>
+            </div>
         </article>
     </div>
         
